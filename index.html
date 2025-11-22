@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanumo | Electrodomésticos Premium</title>
+    <title>Amistad - Electrodomésticos y Tecnología</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --primary-light: #3b82f6;
-            --secondary: #64748b;
-            --accent: #f59e0b;
-            --light: #f8fafc;
-            --dark: #1e293b;
-            --success: #10b981;
-            --text: #334155;
-            --text-light: #64748b;
+            --primary: #0066cc;
+            --primary-dark: #0052a3;
+            --primary-light: #0080ff;
+            --secondary: #ff6600;
+            --accent: #ffcc00;
+            --light: #f8f8f8;
+            --dark: #333333;
+            --gray: #666666;
+            --gray-light: #e6e6e6;
             --white: #ffffff;
-            --gray-50: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --success: #00a650;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
         }
 
         * { 
@@ -34,43 +31,67 @@
 
         body { 
             font-family: 'Inter', sans-serif;
-            background: var(--light); 
-            color: var(--text); 
-            line-height: 1.7;
+            background: var(--white); 
+            color: var(--dark); 
+            line-height: 1.6;
             font-weight: 400;
         }
 
         .container { 
-            width: 90%; 
+            width: 100%; 
             max-width: 1200px; 
             margin: 0 auto; 
-            padding: 0 15px; 
+            padding: 0 20px; 
         }
 
-        /* HEADER MEJORADO */
+        /* HEADER ESTILO MEJORADO */
         header { 
             background: var(--white); 
-            padding: 18px 0; 
-            box-shadow: var(--shadow);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             position: sticky; 
             top: 0; 
             z-index: 1000;
-            backdrop-filter: blur(10px);
         }
 
-        .navbar { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
+        .top-bar {
+            background: var(--dark);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .promo-text {
+            font-weight: 500;
+        }
+
+        .user-actions a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 0.8rem;
+        }
+
+        .main-header {
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .logo { 
-            font-size: 1.75rem; 
-            font-weight: 700; 
-            color: var(--primary);
             display: flex;
             align-items: center;
             gap: 10px;
+            text-decoration: none;
         }
 
         .logo-icon {
@@ -78,223 +99,351 @@
             color: white;
             width: 40px;
             height: 40px;
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
+            font-weight: bold;
         }
 
-        .cart-info { 
-            cursor: pointer; 
-            padding: 10px 18px; 
-            border-radius: 12px; 
-            background: var(--gray-50); 
-            transition: all 0.3s ease;
-            font-weight: 500;
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 30px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid var(--gray-light);
+            border-radius: 24px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--primary);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 7px 20px;
+            cursor: pointer;
+        }
+
+        .header-actions {
             display: flex;
             align-items: center;
-            gap: 8px;
-            border: 1px solid var(--gray-200);
+            gap: 20px;
         }
 
-        .cart-info:hover { 
-            background: var(--gray-100); 
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.8rem;
+            transition: color 0.3s;
         }
 
-        /* HERO SECTION PROFESIONAL */
-        .hero { 
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
-            color: var(--white); 
-            padding: 100px 0 80px;
-            text-align: center;
+        .action-item i {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        .action-item:hover {
+            color: var(--primary);
+        }
+
+        .cart-info {
             position: relative;
-            overflow: hidden;
+            cursor: pointer;
         }
 
-        .hero::before {
-            content: '';
+        .cart-count {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.1"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
+            top: -5px;
+            right: -5px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .nav-categories {
+            background: var(--light);
+            border-top: 1px solid var(--gray-light);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .categories-list {
+            display: flex;
+            list-style: none;
+            padding: 12px 0;
+            overflow-x: auto;
+        }
+
+        .categories-list li {
+            margin-right: 25px;
+            white-space: nowrap;
+        }
+
+        .categories-list a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .categories-list a:hover {
+            color: var(--primary);
+        }
+
+        /* HERO SECTION */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1556909114-4d0d853e5e25?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
+            background-position: center;
+            color: var(--white); 
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
             max-width: 800px;
             margin: 0 auto;
         }
 
         .hero h1 { 
-            font-size: 3.5rem; 
-            font-weight: 700;
+            font-size: 3rem; 
+            font-weight: 800;
             margin-bottom: 20px;
             line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            font-weight: 300;
+            font-size: 1.3rem;
             margin-bottom: 30px;
             opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .btn { 
-            background: var(--accent); 
+            background: var(--primary); 
             color: var(--white); 
-            padding: 16px 32px; 
-            border-radius: 12px; 
+            padding: 14px 32px; 
+            border-radius: 4px; 
             text-decoration: none; 
             display: inline-block; 
-            margin-top: 10px; 
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);
             border: none;
             cursor: pointer;
         }
 
         .btn:hover { 
-            background: #e58e0b;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(245, 158, 11, 0.4);
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
 
-        /* FEATURES MEJORADO */
-        .features { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 30px; 
-            margin: 80px 0; 
-            text-align: center; 
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+            margin-left: 15px;
         }
 
-        .feature { 
-            padding: 40px 25px;
-            border-radius: 16px;
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* MARCAS DESTACADAS */
+        .featured-brands {
+            padding: 40px 0;
+            background: var(--light);
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            align-items: center;
+        }
+
+        .brand-logo {
             background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .feature:hover {
+        .brand-logo:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
 
-        .feature i { 
-            font-size: 3rem; 
-            color: var(--primary); 
-            margin-bottom: 20px; 
-            background: var(--gray-50);
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
+        .brand-logo img {
+            max-width: 100%;
+            max-height: 60px;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
         }
 
-        .feature h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--dark);
+        .brand-logo:hover img {
+            filter: grayscale(0%);
         }
 
-        .feature p {
-            color: var(--text-light);
-            font-size: 1rem;
+        /* FEATURED CATEGORIES */
+        .featured-categories {
+            padding: 40px 0;
         }
 
-        /* PRODUCTOS PREMIUM */
-        .products { 
-            padding: 80px 0; 
-            background: var(--gray-50);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
+        .section-title {
+            font-size: 1.8rem;
             font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
             color: var(--dark);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
             margin-bottom: 15px;
         }
 
-        .section-header p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
+        .category-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* PRODUCTOS DESTACADOS */
+        .featured-products { 
+            padding: 60px 0; 
+            background: var(--light);
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .product-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+            gap: 25px; 
         }
 
         .product-card { 
             background: var(--white); 
-            border-radius: 16px; 
-            padding: 25px; 
-            text-align: center; 
+            border-radius: 8px; 
+            overflow: hidden;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            border: 1px solid var(--gray-200);
             position: relative;
-            overflow: hidden;
         }
 
         .product-card:hover { 
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
 
-        .product-card::before {
-            content: '';
+        .product-badge {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            top: 10px;
+            left: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-badge.sale {
+            background: var(--secondary);
         }
         
         .product-image-container {
             width: 100%;
-            height: 220px;
-            margin-bottom: 20px;
+            height: 200px;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            border-radius: 12px;
-            background: var(--gray-50);
-            border: 1px solid var(--gray-200);
+            background: var(--white);
+            padding: 20px;
+            position: relative;
         }
 
         .product-image {
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
-            padding: 15px;
             transition: transform 0.5s ease;
         }
 
@@ -303,110 +452,614 @@
         }
 
         .image-placeholder {
-            font-size: 3.5rem;
-            color: var(--primary);
-            display: none;
+            font-size: 3rem;
+            color: var(--gray-light);
         }
         
-        .product-category { 
-            background: var(--primary-light); 
-            color: var(--white); 
-            padding: 6px 14px; 
-            border-radius: 20px; 
-            font-size: 0.8rem; 
-            margin-bottom: 15px; 
-            display: inline-block;
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-brand {
+            color: var(--gray);
+            font-size: 0.8rem;
             font-weight: 500;
-            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
         }
 
         .product-name { 
-            font-size: 1.4rem; 
+            font-size: 1.1rem; 
             font-weight: 600; 
-            margin-bottom: 12px; 
+            margin-bottom: 8px; 
             color: var(--dark); 
+            line-height: 1.3;
         }
 
         .product-price { 
             color: var(--primary); 
-            font-size: 1.6rem; 
+            font-size: 1.3rem; 
             font-weight: 700; 
-            margin: 18px 0; 
+            margin-bottom: 12px; 
+        }
+
+        .product-old-price {
+            color: var(--gray);
+            text-decoration: line-through;
+            font-size: 0.9rem;
+            margin-left: 8px;
         }
 
         .product-description { 
-            color: var(--text-light); 
-            margin-bottom: 25px; 
-            font-size: 1rem; 
-            line-height: 1.6; 
+            color: var(--gray); 
+            margin-bottom: 15px; 
+            font-size: 0.9rem; 
+            line-height: 1.4; 
         }
 
         .add-to-cart { 
             background: var(--primary); 
             color: var(--white); 
             border: none; 
-            padding: 14px 25px; 
-            border-radius: 10px; 
+            padding: 10px 15px; 
+            border-radius: 4px; 
             cursor: pointer; 
             width: 100%; 
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .add-to-cart:hover { 
             background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
         }
 
-        /* WHATSAPP SECTION MEJORADO */
-        .whatsapp-section { 
-            background: linear-gradient(135deg, var(--dark) 0%, #0f172a 100%); 
-            color: var(--white); 
-            padding: 80px 0; 
-            text-align: center; 
+        .product-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        .whatsapp-section h2 {
-            font-size: 2.5rem;
+        .product-card:hover .product-actions {
+            opacity: 1;
+        }
+
+        .action-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--white);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .rating-stars {
+            color: var(--accent);
+        }
+
+        .rating-count {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* NUEVAS SECCIONES Y FUNCIONALIDADES */
+        .filters-section {
+            background: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .filters-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            padding: 8px 15px;
+            border: 1px solid var(--gray-light);
+            border-radius: 4px;
+            background: var(--white);
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .filter-select:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .view-btn {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .view-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .deals-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .deals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .deal-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .deal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .deal-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .deal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .deal-info {
+            padding: 20px;
+        }
+
+        .deal-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .deal-description {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .deal-timer {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .timer-unit {
+            background: var(--primary);
+            color: var(--white);
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .timer-label {
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 2px;
+            color: var(--gray);
+        }
+
+        .recently-viewed {
+            padding: 60px 0;
+            background: var(--light);
+        }
+
+        .recent-products {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px 5px;
+            scrollbar-width: thin;
+        }
+
+        .recent-product-card {
+            min-width: 200px;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .recent-product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .recent-product-image {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .recent-product-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .recent-product-price {
+            color: var(--primary);
             font-weight: 700;
+        }
+
+        /* MODALES MEJORADOS */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--dark);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        /* CARRITO MEJORADO */
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .quantity-btn {
+            background: var(--gray-light);
+            border: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .quantity-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid var(--gray-light);
+            border-radius: 4px;
+            padding: 4px;
+        }
+
+        .cart-coupon {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .coupon-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--gray-light);
+            border-radius: 4px;
+        }
+
+        .apply-coupon {
+            background: var(--secondary);
+            color: var(--white);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .cart-summary {
+            padding: 20px;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .summary-total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-top: 2px solid var(--primary);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .checkout-btn {
+            background: var(--success);
+            color: var(--white);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #008a42;
+        }
+
+        /* PRODUCTO RÁPIDO */
+        .quick-view-content {
+            display: flex;
+            gap: 30px;
+        }
+
+        .quick-view-image {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .quick-view-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .quick-view-info {
+            flex: 2;
+        }
+
+        .quick-view-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .quick-view-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .quick-view-description {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .quick-view-actions {
+            display: flex;
+            gap: 15px;
             margin-bottom: 20px;
         }
 
-        .whatsapp-section p {
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-selector input {
+            width: 60px;
+            text-align: center;
+            padding: 8px;
+            border: 1px solid var(--gray-light);
+            border-radius: 4px;
+        }
+
+        .wishlist-btn {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+
+        .wishlist-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .wishlist-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        /* COMPARADOR */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .comparison-table th {
+            background: var(--light);
+            font-weight: 600;
+        }
+
+        .comparison-product {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .comparison-product img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .remove-comparison {
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
             font-size: 1.2rem;
-            margin-bottom: 30px;
+        }
+
+        .remove-comparison:hover {
+            color: var(--primary);
+        }
+
+        /* NEWSLETTER */
+        .newsletter {
+            background: var(--primary);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            margin-bottom: 25px;
             opacity: 0.9;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .whatsapp-btn { 
-            background: var(--success); 
-            color: var(--white); 
-            padding: 18px 35px; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 10px; 
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        .whatsapp-btn:hover { 
-            background: #0da271;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(16, 185, 129, 0.4);
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            background: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 0 25px;
+            borderRadius: 0 4px 4px 0;
+            font-weight: 600;
+            cursor: pointer;
         }
 
         /* FOOTER PROFESIONAL */
@@ -418,22 +1071,35 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
 
         .footer-column h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 20px;
             color: var(--white);
         }
 
-        .footer-column p {
-            color: #cbd5e1;
-            margin-bottom: 20px;
-            line-height: 1.6;
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
         }
 
         .contact-info {
@@ -445,7 +1111,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: #cbd5e1;
+            color: #ccc;
+            font-size: 0.9rem;
         }
 
         .social-links {
@@ -457,8 +1124,8 @@
         .social-links a {
             color: var(--white);
             background: rgba(255, 255, 255, 0.1);
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -475,274 +1142,551 @@
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #94a3b8;
+            font-size: 0.85rem;
+            color: #999;
         }
         
-        /* CARRITO MEJORADO */
-        .cart-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .cart-content {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 30px;
-            width: 90%;
-            max-width: 500px;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .cart-header h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .close-cart {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-light);
-            transition: color 0.3s;
-        }
-
-        .close-cart:hover {
-            color: var(--dark);
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .cart-item-info {
-            flex: 1;
-        }
-
-        .cart-item-name {
-            font-weight: 500;
-            color: var(--dark);
-            margin-bottom: 5px;
-        }
-
-        .cart-item-details {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .cart-item-price {
-            font-weight: 600;
-            color: var(--primary);
-            margin-right: 15px;
-        }
-
-        .remove-btn {
-            background: #ef4444;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 6px 10px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: all 0.3s;
-        }
-
-        .remove-btn:hover {
-            background: #dc2626;
-        }
-
-        .cart-total {
-            font-size: 1.4rem;
-            font-weight: 700;
-            text-align: right;
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 2px solid var(--primary);
-            color: var(--dark);
-        }
-
-        .empty-cart {
-            text-align: center;
-            color: var(--text-light);
-            padding: 40px 20px;
-        }
-
-        .empty-cart i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: var(--gray-200);
-        }
-
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            .section-header h2 { font-size: 2rem; }
-            .features { grid-template-columns: 1fr; }
-            .product-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; }
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .search-bar {
+                order: 3;
+                margin: 15px 0 0;
+                max-width: 100%;
+            }
+            
+            .hero h1 { 
+                font-size: 2.2rem; 
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+            
+            .product-grid { 
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 4px;
+                padding: 12px;
+            }
+
+            .quick-view-content {
+                flex-direction: column;
+            }
+
+            .quick-view-image {
+                max-width: 100%;
+            }
+
+            .filters-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .filter-group {
+                width: 100%;
+                justify-content: space-between;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- TOP BAR -->
+    <div class="top-bar">
         <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-bolt"></i>
+            <div class="top-bar-content">
+                <div class="promo-text">¡Envío gratis en compras superiores a $100!</div>
+                <div class="user-actions">
+                    <a href="#"><i class="fas fa-store"></i> Encuentra una tienda</a>
+                    <a href="#"><i class="fas fa-user"></i> Mi cuenta</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="main-header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">A</div>
+                        <div class="logo-text">AMISTAD</div>
+                    </a>
+                    
+                    <div class="search-bar">
+                        <input type="text" placeholder="Buscar productos...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
                     </div>
-                    <span>Sanumo</span>
+                    
+                    <div class="header-actions">
+                        <a href="#" class="action-item">
+                            <i class="fas fa-user"></i>
+                            <span>Cuenta</span>
+                        </a>
+                        <a href="#" class="action-item" onclick="toggleWishlist()">
+                            <i class="fas fa-heart"></i>
+                            <span>Lista</span>
+                            <div class="cart-count" id="wishlist-count">0</div>
+                        </a>
+                        <a href="#" class="action-item" onclick="toggleComparison()">
+                            <i class="fas fa-balance-scale"></i>
+                            <span>Comparar</span>
+                            <div class="cart-count" id="comparison-count">0</div>
+                        </a>
+                        <div class="action-item cart-info" onclick="toggleCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Carrito</span>
+                            <div class="cart-count" id="cart-count">0</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="cart-info" onclick="toggleCart()">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span id="cart-count">0</span> - $<span id="cart-total">0</span>
-                </div>
-            </nav>
+            </div>
+        </div>
+        
+        <div class="nav-categories">
+            <div class="container">
+                <ul class="categories-list">
+                    <li><a href="#">Electrodomésticos</a></li>
+                    <li><a href="#">Tecnología</a></li>
+                    <li><a href="#">Hogar</a></li>
+                    <li><a href="#">Cocina</a></li>
+                    <li><a href="#">Limpieza</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Nuevos Productos</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Electrodomésticos Sanumo</h1>
-            <p>Tecnología innovadora y diseño premium para transformar tu hogar. Calidad garantizada con los mejores estándares del mercado.</p>
-            <a href="#products" class="btn">Descubrir Productos</a>
-        </div>
-    </section>
-
-    <section class="features">
         <div class="container">
-            <div class="feature">
-                <i class="fas fa-shipping-fast"></i>
-                <h3>Envío Express</h3>
-                <p>Recibe tus productos en 24-48 horas con nuestro servicio prioritario</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Garantía Extendida</h3>
-                <p>Disfruta de 2 años de garantía en todos nuestros productos</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-headset"></i>
-                <h3>Soporte Premium</h3>
-                <p>Asistencia técnica especializada disponible 24/7</p>
+            <div class="hero-content">
+                <h1>Amistad - Tu Tienda de Confianza</h1>
+                <p>Las mejores marcas de electrodomésticos y tecnología para tu hogar</p>
+                <div class="hero-actions">
+                    <a href="#products" class="btn">Ver Productos</a>
+                    <a href="#brands" class="btn btn-secondary">Marcas Destacadas</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="products" id="products">
+    <!-- MARCAS DESTACADAS -->
+    <section class="featured-brands" id="brands">
         <div class="container">
-            <div class="section-header">
-                <h2>Nuestra Colección Premium</h2>
-                <p>Descubre la innovación y calidad que definen a Sanumo</p>
+            <h2 class="section-title">Marcas Destacadas</h2>
+            <div class="brands-grid">
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/LG_logo_%282015%29.svg" alt="LG">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Whirlpool_logo.svg" alt="Whirlpool">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Philips_logo.svg" alt="Philips">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Panasonic_logo_%28Blue%29.svg" alt="Panasonic">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Mabe_logo.svg" alt="Mabe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTROS -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <select class="filter-select" id="category-filter">
+                        <option value="">Todas las categorías</option>
+                        <option value="ventilacion">Ventilación</option>
+                        <option value="cocina">Cocina</option>
+                        <option value="preparacion">Preparación</option>
+                        <option value="climatizacion">Climatización</option>
+                        <option value="iluminacion">Iluminación</option>
+                    </select>
+                    <select class="filter-select" id="brand-filter">
+                        <option value="">Todas las marcas</option>
+                        <option value="samsung">Samsung</option>
+                        <option value="lg">LG</option>
+                        <option value="whirlpool">Whirlpool</option>
+                        <option value="philips">Philips</option>
+                        <option value="panasonic">Panasonic</option>
+                        <option value="mabe">Mabe</option>
+                    </select>
+                    <select class="filter-select" id="price-filter">
+                        <option value="">Todos los precios</option>
+                        <option value="0-50">Hasta $50</option>
+                        <option value="50-100">$50 - $100</option>
+                        <option value="100-200">$100 - $200</option>
+                        <option value="200+">Más de $200</option>
+                    </select>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" id="grid-view"><i class="fas fa-th"></i></button>
+                    <button class="view-btn" id="list-view"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED CATEGORIES -->
+    <section class="featured-categories">
+        <div class="container">
+            <h2 class="section-title">Categorías Destacadas</h2>
+            <div class="categories-grid">
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-fan"></i>
+                    </div>
+                    <div class="category-name">Ventilación</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="category-name">Cocina</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-blender"></i>
+                    </div>
+                    <div class="category-name">Preparación</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <div class="category-name">Climatización</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="category-name">Iluminación</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PRODUCTOS -->
+    <section class="featured-products" id="products">
+        <div class="container">
+            <div class="products-header">
+                <h2 class="section-title">Productos Destacados</h2>
+                <a href="#" class="view-all">Ver todos <i class="fas fa-chevron-right"></i></a>
             </div>
             
             <div class="product-grid">
-                <!-- VENTILADOR SANUMO -->
-                <div class="product-card">
+                <!-- VENTILADOR SAMSUNG -->
+                <div class="product-card" data-category="ventilacion" data-brand="samsung" data-price="85" data-rating="4.5">
+                    <div class="product-badge">Nuevo</div>
+                    <div class="product-actions">
+                        <button class="action-btn" onclick="toggleWishlistItem(0)">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="action-btn" onclick="addToComparison(0)">
+                            <i class="fas fa-balance-scale"></i>
+                        </button>
+                        <button class="action-btn" onclick="openQuickView(0)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
                     <div class="product-image-container">
                         <img src="https://i.ibb.co/k20PVXK1/8b3e8d70-5394-4d5f-99e6-43f54c1f496e.jpg" 
-                             alt="Ventilador Recargable Sanumo" 
+                             alt="Ventilador Recargable Samsung" 
                              class="product-image"
                              onerror="this.style.display='none'; document.getElementById('ventilador-placeholder').style.display='flex'">
-                        <div class="image-placeholder" id="ventilador-placeholder">
+                        <div class="image-placeholder" id="ventilador-placeholder" style="display: none;">
                             <i class="fas fa-fan"></i>
                         </div>
                     </div>
-                    <div class="product-category">Tecnología Verde</div>
-                    <h3 class="product-name">Ventilador Recargable Sanumo</h3>
-                    <div class="product-price">$85 USD</div>
-                    <p class="product-description">Disfruta de comodidad sostenible con nuestro ventilador de energía solar. Perfecto para interiores y exteriores.</p>
-                    <button class="add-to-cart" data-name="Ventilador Recargable Sanumo" data-price="85">
-                        <i class="fas fa-cart-plus"></i> Agregar al Carrito
-                    </button>
+                    <div class="product-info">
+                        <div class="product-brand">Samsung</div>
+                        <h3 class="product-name">Ventilador Recargable</h3>
+                        <div class="rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="rating-count">(128)</div>
+                        </div>
+                        <div class="product-price">$85 USD</div>
+                        <p class="product-description">Ventilador portátil con panel solar, batería de larga duración y luz LED integrada.</p>
+                        <button class="add-to-cart" data-id="0" data-name="Ventilador Recargable Samsung" data-price="85">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
                 </div>
 
-                <!-- OLLA DE PRESIÓN SANUMO -->
-                <div class="product-card">
+                <!-- OLLA DE PRESIÓN WHIRLPOOL -->
+                <div class="product-card" data-category="cocina" data-brand="whirlpool" data-price="50" data-rating="4.8">
+                    <div class="product-badge">Popular</div>
+                    <div class="product-actions">
+                        <button class="action-btn" onclick="toggleWishlistItem(1)">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="action-btn" onclick="addToComparison(1)">
+                            <i class="fas fa-balance-scale"></i>
+                        </button>
+                        <button class="action-btn" onclick="openQuickView(1)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
                     <div class="product-image-container">
                         <img src="https://i.ibb.co/gZGc52QW/2b532c27-5764-4d40-814c-9d878bad95ba.jpg" 
-                             alt="Olla de Presión Sanumo" 
+                             alt="Olla de Presión Whirlpool" 
                              class="product-image"
                              onerror="this.style.display='none'; document.getElementById('olla-placeholder').style.display='flex'">
-                        <div class="image-placeholder" id="olla-placeholder">
+                        <div class="image-placeholder" id="olla-placeholder" style="display: none;">
                             <i class="fas fa-utensils"></i>
                         </div>
                     </div>
-                    <div class="product-category">Cocina Inteligente</div>
-                    <h3 class="product-name">Olla de Presión Sanumo</h3>
-                    <div class="product-price">$50 USD</div>
-                    <p class="product-description">Tecnología japonesa de última generación para una cocción perfecta y segura. Ahorra tiempo y energía.</p>
-                    <button class="add-to-cart" data-name="Olla de Presión Sanumo" data-price="50">
-                        <i class="fas fa-cart-plus"></i> Agregar al Carrito
-                    </button>
+                    <div class="product-info">
+                        <div class="product-brand">Whirlpool</div>
+                        <h3 class="product-name">Olla de Presión</h3>
+                        <div class="rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="rating-count">(95)</div>
+                        </div>
+                        <div class="product-price">$50 USD</div>
+                        <p class="product-description">Olla de presión con recubrimiento antiadherente y sistema de seguridad avanzado.</p>
+                        <button class="add-to-cart" data-id="1" data-name="Olla de Presión Whirlpool" data-price="50">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
                 </div>
 
-                <div class="product-card" style="background: var(--gray-50); border: 2px dashed var(--primary-light);">
+                <!-- LICUADORA PHILIPS -->
+                <div class="product-card" data-category="preparacion" data-brand="philips" data-price="65" data-rating="4.2">
+                    <div class="product-badge sale">Oferta</div>
+                    <div class="product-actions">
+                        <button class="action-btn" onclick="toggleWishlistItem(2)">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="action-btn" onclick="addToComparison(2)">
+                            <i class="fas fa-balance-scale"></i>
+                        </button>
+                        <button class="action-btn" onclick="openQuickView(2)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
                     <div class="product-image-container">
-                        <div class="image-placeholder" style="display: flex; color: var(--primary-light);">
-                            <i class="fas fa-plus"></i>
+                        <div class="image-placeholder">
+                            <i class="fas fa-blender"></i>
                         </div>
                     </div>
-                    <h3 class="product-name">Nuevos Productos</h3>
-                    <div class="product-price">Próximamente</div>
-                    <p class="product-description">Estamos trabajando en expandir nuestra línea de electrodomésticos inteligentes.</p>
-                    <button class="add-to-cart" style="background: var(--secondary);" disabled>
-                        <i class="fas fa-clock"></i> Disponible Pronto
-                    </button>
+                    <div class="product-info">
+                        <div class="product-brand">Philips</div>
+                        <h3 class="product-name">Licuadora Pro</h3>
+                        <div class="rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="rating-count">(64)</div>
+                        </div>
+                        <div class="product-price">$65 USD <span class="product-old-price">$80 USD</span></div>
+                        <p class="product-description">Licuadora de alta potencia con tecnología de cuchillas de titanio.</p>
+                        <button class="add-to-cart" data-id="2" data-name="Licuadora Philips Pro" data-price="65">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PURIFICADOR DE AIRE LG -->
+                <div class="product-card" data-category="climatizacion" data-brand="lg" data-price="120" data-rating="4.7">
+                    <div class="product-badge">Destacado</div>
+                    <div class="product-actions">
+                        <button class="action-btn" onclick="toggleWishlistItem(3)">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="action-btn" onclick="addToComparison(3)">
+                            <i class="fas fa-balance-scale"></i>
+                        </button>
+                        <button class="action-btn" onclick="openQuickView(3)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="product-image-container">
+                        <div class="image-placeholder">
+                            <i class="fas fa-air-freshener"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">LG</div>
+                        <h3 class="product-name">Purificador de Aire</h3>
+                        <div class="rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="rating-count">(87)</div>
+                        </div>
+                        <div class="product-price">$120 USD</div>
+                        <p class="product-description">Purificador con filtro HEPA y tecnología de ionización.</p>
+                        <button class="add-to-cart" data-id="3" data-name="Purificador de Aire LG" data-price="120">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="whatsapp-section">
+    <!-- OFERTAS DESTACADAS -->
+    <section class="deals-section">
         <div class="container">
-            <h2>¿Necesitas Asesoramiento?</h2>
-            <p>Nuestros especialistas están listos para ayudarte a elegir el producto perfecto para tus necesidades</p>
-            <a href="https://wa.me/5358669580?text=Hola,%20me%20interesan%20los%20electrodomésticos%20Sanumo" class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Consultar con un Experto
-            </a>
+            <h2 class="section-title">Ofertas Especiales</h2>
+            <div class="deals-grid">
+                <div class="deal-card">
+                    <div class="deal-image-container">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Oferta Especial" class="deal-image">
+                    </div>
+                    <div class="deal-info">
+                        <h3 class="deal-title">Hasta 40% de descuento</h3>
+                        <p class="deal-description">En toda la línea de electrodomésticos de cocina. Válido hasta agotar existencias.</p>
+                        <div class="deal-timer">
+                            <div>
+                                <div class="timer-unit" id="deal-days">02</div>
+                                <div class="timer-label">Días</div>
+                            </div>
+                            <div>
+                                <div class="timer-unit" id="deal-hours">12</div>
+                                <div class="timer-label">Horas</div>
+                            </div>
+                            <div>
+                                <div class="timer-unit" id="deal-minutes">45</div>
+                                <div class="timer-label">Minutos</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">Ver Ofertas</a>
+                    </div>
+                </div>
+                <div class="deal-card">
+                    <div class="deal-image-container">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25856cd23?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Envío Gratis" class="deal-image">
+                    </div>
+                    <div class="deal-info">
+                        <h3 class="deal-title">Envío Gratis</h3>
+                        <p class="deal-description">En todas las compras superiores a $100. Aprovecha esta oferta limitada.</p>
+                        <div class="deal-timer">
+                            <div>
+                                <div class="timer-unit" id="deal-days-2">05</div>
+                                <div class="timer-label">Días</div>
+                            </div>
+                            <div>
+                                <div class="timer-unit" id="deal-hours-2">08</div>
+                                <div class="timer-label">Horas</div>
+                            </div>
+                            <div>
+                                <div class="timer-unit" id="deal-minutes-2">30</div>
+                                <div class="timer-label">Minutos</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">Comprar Ahora</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- PRODUCTOS VISTOS RECIENTEMENTE -->
+    <section class="recently-viewed">
+        <div class="container">
+            <h2 class="section-title">Vistos Recientemente</h2>
+            <div class="recent-products" id="recent-products">
+                <!-- Los productos vistos recientemente se cargarán aquí dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>¡No te pierdas nuestras ofertas!</h2>
+            <p>Suscríbete a nuestro newsletter y recibe descuentos exclusivos y novedades sobre nuestros productos.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Tu correo electrónico" required>
+                <button type="submit" class="newsletter-btn">Suscribirse</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Sanumo</h3>
-                    <p>Líderes en electrodomésticos innovadores que combinan tecnología avanzada con diseño elegante para transformar tu experiencia en el hogar.</p>
+                    <h3>Amistad</h3>
+                    <p>Tu tienda de confianza para electrodomésticos y tecnología de las mejores marcas. Calidad, variedad y precios competitivos.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Categorías</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Electrodomésticos</a></li>
+                        <li><a href="#">Tecnología</a></li>
+                        <li><a href="#">Hogar</a></li>
+                        <li><a href="#">Cocina</a></li>
+                        <li><a href="#">Limpieza</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ayuda</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Envíos y Entregas</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Garantías</a></li>
+                    </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contacto</h3>
@@ -755,55 +1699,204 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Sanumo. Todos los derechos reservados. | Diseñado con <i class="fas fa-heart" style="color: #ef4444;"></i> para tu hogar</p>
+                <p>&copy; 2024 Amistad. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- MODAL DEL CARRITO MEJORADO -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-content">
-            <div class="cart-header">
+    <!-- CARRITO MODAL -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
                 <h2>Tu Carrito de Compras</h2>
-                <button class="close-cart" onclick="closeCart()">
+                <button class="close-modal" onclick="closeCart()">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div id="cart-items">
-                <div class="empty-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <p>Tu carrito está vacío</p>
+            <div class="modal-body">
+                <div class="cart-items" id="cart-items">
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Tu carrito está vacío</p>
+                    </div>
+                </div>
+                <div class="cart-coupon">
+                    <input type="text" class="coupon-input" placeholder="Código de descuento">
+                    <button class="apply-coupon">Aplicar</button>
+                </div>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span>$<span id="subtotal">0</span> USD</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Envío:</span>
+                        <span>$<span id="shipping">0</span> USD</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Descuento:</span>
+                        <span>-$<span id="discount">0</span> USD</span>
+                    </div>
+                    <div class="summary-row summary-total">
+                        <span>Total:</span>
+                        <span>$<span id="modal-total">0</span> USD</span>
+                    </div>
+                    <button class="checkout-btn">Proceder al Pago</button>
                 </div>
             </div>
-            <div class="cart-total">
-                Total: $<span id="modal-total">0</span> USD
+        </div>
+    </div>
+
+    <!-- VISTA RÁPIDA MODAL -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Vista Rápida</h2>
+                <button class="close-modal" onclick="closeQuickView()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="quick-view-content" id="quick-view-content">
+                    <!-- Contenido de vista rápida se cargará aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LISTA DE DESEOS MODAL -->
+    <div class="modal" id="wishlistModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tu Lista de Deseos</h2>
+                <button class="close-modal" onclick="closeWishlist()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="cart-items" id="wishlist-items">
+                    <div class="empty-cart">
+                        <i class="fas fa-heart"></i>
+                        <p>Tu lista de deseos está vacía</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPARADOR MODAL -->
+    <div class="modal" id="comparisonModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Comparar Productos</h2>
+                <button class="close-modal" onclick="closeComparison()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="comparison-content">
+                    <div class="empty-cart">
+                        <i class="fas fa-balance-scale"></i>
+                        <p>Agrega productos para comparar</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // SISTEMA DEL CARRITO MEJORADO
+        // DATOS DE PRODUCTOS
+        const products = [
+            {
+                id: 0,
+                name: "Ventilador Recargable",
+                brand: "Samsung",
+                category: "ventilacion",
+                price: 85,
+                rating: 4.5,
+                reviews: 128,
+                description: "Ventilador portátil con panel solar, batería de larga duración y luz LED integrada. Perfecto para uso en interiores y exteriores.",
+                features: ["Panel solar integrado", "Batería de 8 horas", "3 velocidades", "Luz LED", "Portátil y ligero"],
+                image: "https://i.ibb.co/k20PVXK1/8b3e8d70-5394-4d5f-99e6-43f54c1f496e.jpg"
+            },
+            {
+                id: 1,
+                name: "Olla de Presión",
+                brand: "Whirlpool",
+                category: "cocina",
+                price: 50,
+                rating: 4.8,
+                reviews: 95,
+                description: "Olla de presión con recubrimiento antiadherente y sistema de seguridad avanzado. Cocina más rápido y conserva los nutrientes.",
+                features: ["Recubrimiento antiadherente", "Sistema de seguridad", "Fácil limpieza", "Capacidad 6L", "Indicador de presión"],
+                image: "https://i.ibb.co/gZGc52QW/2b532c27-5764-4d40-814c-9d878bad95ba.jpg"
+            },
+            {
+                id: 2,
+                name: "Licuadora Pro",
+                brand: "Philips",
+                category: "preparacion",
+                price: 65,
+                oldPrice: 80,
+                rating: 4.2,
+                reviews: 64,
+                description: "Licuadora de alta potencia con tecnología de cuchillas de titanio. Perfecta para smoothies, sopas y más.",
+                features: ["1000W de potencia", "Cuchillas de titanio", "Jarra de vidrio", "5 velocidades", "Función pulso"],
+                image: ""
+            },
+            {
+                id: 3,
+                name: "Purificador de Aire",
+                brand: "LG",
+                category: "climatizacion",
+                price: 120,
+                rating: 4.7,
+                reviews: 87,
+                description: "Purificador con filtro HEPA y tecnología de ionización. Elimina hasta el 99.97% de partículas en el aire.",
+                features: ["Filtro HEPA", "Tecnología de ionización", "3 modos de funcionamiento", "Indicador de calidad del aire", "Bajo consumo energético"],
+                image: ""
+            }
+        ];
+
+        // SISTEMA DEL CARRITO
         let cart = [];
         const cartCount = document.getElementById('cart-count');
-        const cartTotal = document.getElementById('cart-total');
         const modalTotal = document.getElementById('modal-total');
         const cartItems = document.getElementById('cart-items');
         const cartModal = document.getElementById('cartModal');
+
+        // SISTEMA DE LISTA DE DESEOS
+        let wishlist = [];
+        const wishlistCount = document.getElementById('wishlist-count');
+        const wishlistItems = document.getElementById('wishlist-items');
+        const wishlistModal = document.getElementById('wishlistModal');
+
+        // SISTEMA DE COMPARACIÓN
+        let comparison = [];
+        const comparisonCount = document.getElementById('comparison-count');
+        const comparisonContent = document.getElementById('comparison-content');
+        const comparisonModal = document.getElementById('comparisonModal');
+
+        // PRODUCTOS VISTOS RECIENTEMENTE
+        let recentlyViewed = [];
+        const recentProductsContainer = document.getElementById('recent-products');
 
         // Agregar productos al carrito
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', function() {
                 if (!this.disabled) {
+                    const id = parseInt(this.getAttribute('data-id'));
                     const name = this.getAttribute('data-name');
                     const price = parseInt(this.getAttribute('data-price'));
                     
                     // Buscar si el producto ya está en el carrito
-                    const existingItem = cart.find(item => item.name === name);
+                    const existingItem = cart.find(item => item.id === id);
                     
                     if (existingItem) {
                         existingItem.quantity += 1;
                     } else {
                         cart.push({
+                            id: id,
                             name: name,
                             price: price,
                             quantity: 1
@@ -836,8 +1929,15 @@
             });
             
             cartCount.textContent = totalCount;
-            cartTotal.textContent = totalPrice;
             modalTotal.textContent = totalPrice;
+            document.getElementById('subtotal').textContent = totalPrice;
+            
+            // Calcular envío (gratis si es mayor a 100)
+            const shipping = totalPrice >= 100 ? 0 : 10;
+            document.getElementById('shipping').textContent = shipping;
+            
+            // Actualizar total con envío
+            document.getElementById('modal-total').textContent = totalPrice + shipping;
             
             // Actualizar items en el modal
             cartItems.innerHTML = '';
@@ -856,10 +1956,15 @@
                     itemElement.innerHTML = `
                         <div class="cart-item-info">
                             <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-details">Cantidad: ${item.quantity}</div>
+                            <div class="cart-item-details">$${item.price} c/u</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn" onclick="decreaseQuantity(${index})">-</button>
+                                <input type="number" class="quantity-input" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
+                                <button class="quantity-btn" onclick="increaseQuantity(${index})">+</button>
+                            </div>
                         </div>
                         <div>
-                            <span class="cart-item-price">$${item.price * item.quantity} USD</span>
+                            <span class="cart-item-price">$${item.price * item.quantity}</span>
                             <button class="remove-btn" onclick="removeFromCart(${index})">
                                 <i class="fas fa-trash"></i>
                             </button>
@@ -870,13 +1975,30 @@
             }
         }
 
-        // Remover producto del carrito
-        function removeFromCart(index) {
+        // Funciones para modificar cantidades en el carrito
+        function increaseQuantity(index) {
+            cart[index].quantity += 1;
+            updateCart();
+        }
+
+        function decreaseQuantity(index) {
             if (cart[index].quantity > 1) {
                 cart[index].quantity -= 1;
-            } else {
-                cart.splice(index, 1);
+                updateCart();
             }
+        }
+
+        function updateQuantity(index, value) {
+            const newQuantity = parseInt(value);
+            if (newQuantity > 0) {
+                cart[index].quantity = newQuantity;
+                updateCart();
+            }
+        }
+
+        // Remover producto del carrito
+        function removeFromCart(index) {
+            cart.splice(index, 1);
             updateCart();
         }
 
@@ -889,34 +2011,455 @@
             document.getElementById('cartModal').style.display = 'none';
         }
 
-        // Cerrar modal al hacer clic fuera
-        document.getElementById('cartModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeCart();
+        // SISTEMA DE LISTA DE DESEOS
+        function toggleWishlistItem(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingIndex = wishlist.findIndex(item => item.id === productId);
+            
+            if (existingIndex !== -1) {
+                wishlist.splice(existingIndex, 1);
+            } else {
+                wishlist.push({
+                    id: product.id,
+                    name: product.name,
+                    brand: product.brand,
+                    price: product.price,
+                    image: product.image
+                });
             }
+            
+            updateWishlist();
+        }
+
+        function updateWishlist() {
+            wishlistCount.textContent = wishlist.length;
+            
+            wishlistItems.innerHTML = '';
+            
+            if (wishlist.length === 0) {
+                wishlistItems.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-heart"></i>
+                        <p>Tu lista de deseos está vacía</p>
+                    </div>
+                `;
+            } else {
+                wishlist.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-details">${item.brand} - $${item.price} USD</div>
+                        </div>
+                        <div>
+                            <button class="add-to-cart" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                            <button class="remove-btn" onclick="removeFromWishlist(${index})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    wishlistItems.appendChild(itemElement);
+                });
+                
+                // Reasignar eventos a los botones de agregar al carrito
+                document.querySelectorAll('#wishlist-items .add-to-cart').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const name = this.getAttribute('data-name');
+                        const price = parseInt(this.getAttribute('data-price'));
+                        
+                        const existingItem = cart.find(item => item.id === id);
+                        
+                        if (existingItem) {
+                            existingItem.quantity += 1;
+                        } else {
+                            cart.push({
+                                id: id,
+                                name: name,
+                                price: price,
+                                quantity: 1
+                            });
+                        }
+                        
+                        updateCart();
+                    });
+                });
+            }
+        }
+
+        function removeFromWishlist(index) {
+            wishlist.splice(index, 1);
+            updateWishlist();
+        }
+
+        function toggleWishlist() {
+            document.getElementById('wishlistModal').style.display = 'flex';
+        }
+
+        function closeWishlist() {
+            document.getElementById('wishlistModal').style.display = 'none';
+        }
+
+        // SISTEMA DE COMPARACIÓN
+        function addToComparison(productId) {
+            const product = products.find(p => p.id === productId);
+            
+            if (comparison.length >= 4) {
+                alert("Solo puedes comparar hasta 4 productos a la vez");
+                return;
+            }
+            
+            if (!comparison.find(item => item.id === productId)) {
+                comparison.push(product);
+                updateComparison();
+            }
+        }
+
+        function updateComparison() {
+            comparisonCount.textContent = comparison.length;
+            
+            comparisonContent.innerHTML = '';
+            
+            if (comparison.length === 0) {
+                comparisonContent.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-balance-scale"></i>
+                        <p>Agrega productos para comparar</p>
+                    </div>
+                `;
+            } else {
+                const table = document.createElement('table');
+                table.className = 'comparison-table';
+                
+                // Encabezado con productos
+                const headerRow = document.createElement('tr');
+                headerRow.innerHTML = '<th>Características</th>';
+                
+                comparison.forEach(product => {
+                    headerRow.innerHTML += `
+                        <th>
+                            <div class="comparison-product">
+                                <img src="${product.image || ''}" alt="${product.name}" onerror="this.style.display='none'">
+                                <div>
+                                    <div>${product.brand}</div>
+                                    <div>${product.name}</div>
+                                    <div>$${product.price} USD</div>
+                                </div>
+                                <button class="remove-comparison" onclick="removeFromComparison(${product.id})">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </th>
+                    `;
+                });
+                table.appendChild(headerRow);
+                
+                // Características
+                const features = ["Precio", "Categoría", "Marca", "Valoración", "Reseñas"];
+                
+                features.forEach(feature => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${feature}</td>`;
+                    
+                    comparison.forEach(product => {
+                        let value = "";
+                        switch(feature) {
+                            case "Precio":
+                                value = `$${product.price} USD`;
+                                break;
+                            case "Categoría":
+                                value = product.category.charAt(0).toUpperCase() + product.category.slice(1);
+                                break;
+                            case "Marca":
+                                value = product.brand;
+                                break;
+                            case "Valoración":
+                                value = `${product.rating}/5`;
+                                break;
+                            case "Reseñas":
+                                value = `${product.reviews} reseñas`;
+                                break;
+                        }
+                        
+                        row.innerHTML += `<td>${value}</td>`;
+                    });
+                    
+                    table.appendChild(row);
+                });
+                
+                comparisonContent.appendChild(table);
+            }
+        }
+
+        function removeFromComparison(productId) {
+            const index = comparison.findIndex(item => item.id === productId);
+            if (index !== -1) {
+                comparison.splice(index, 1);
+                updateComparison();
+            }
+        }
+
+        function toggleComparison() {
+            document.getElementById('comparisonModal').style.display = 'flex';
+        }
+
+        function closeComparison() {
+            document.getElementById('comparisonModal').style.display = 'none';
+        }
+
+        // VISTA RÁPIDA
+        function openQuickView(productId) {
+            const product = products.find(p => p.id === productId);
+            
+            // Agregar a productos vistos recientemente
+            if (!recentlyViewed.find(item => item.id === productId)) {
+                recentlyViewed.unshift(product);
+                if (recentlyViewed.length > 5) {
+                    recentlyViewed.pop();
+                }
+                updateRecentlyViewed();
+            }
+            
+            document.getElementById('quick-view-content').innerHTML = `
+                <div class="quick-view-image">
+                    <img src="${product.image || ''}" alt="${product.name}" onerror="this.src=''">
+                    ${!product.image ? `<div class="image-placeholder"><i class="fas fa-box"></i></div>` : ''}
+                </div>
+                <div class="quick-view-info">
+                    <div class="product-brand">${product.brand}</div>
+                    <h2 class="quick-view-title">${product.name}</h2>
+                    <div class="rating">
+                        <div class="rating-stars">
+                            ${generateStars(product.rating)}
+                        </div>
+                        <div class="rating-count">(${product.reviews} reseñas)</div>
+                    </div>
+                    <div class="quick-view-price">$${product.price} USD ${product.oldPrice ? `<span class="product-old-price">$${product.oldPrice} USD</span>` : ''}</div>
+                    <p class="quick-view-description">${product.description}</p>
+                    <div class="quick-view-actions">
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" id="quick-view-quantity">
+                        </div>
+                        <button class="btn add-to-cart" onclick="addFromQuickView(${productId})">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                        <button class="wishlist-btn ${wishlist.find(item => item.id === productId) ? 'active' : ''}" onclick="toggleWishlistItem(${productId}); this.classList.toggle('active')">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-features">
+                        <h3>Características:</h3>
+                        <ul>
+                            ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('quickViewModal').style.display = 'flex';
+        }
+
+        function generateStars(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        function addFromQuickView(productId) {
+            const product = products.find(p => p.id === productId);
+            const quantity = parseInt(document.getElementById('quick-view-quantity').value) || 1;
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: `${product.brand} ${product.name}`,
+                    price: product.price,
+                    quantity: quantity
+                });
+            }
+            
+            updateCart();
+            closeQuickView();
+            
+            // Mostrar mensaje de confirmación
+            alert(`${quantity} ${product.brand} ${product.name} agregado(s) al carrito`);
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickViewModal').style.display = 'none';
+        }
+
+        // PRODUCTOS VISTOS RECIENTEMENTE
+        function updateRecentlyViewed() {
+            recentProductsContainer.innerHTML = '';
+            
+            if (recentlyViewed.length === 0) {
+                recentProductsContainer.innerHTML = '<p>No has visto ningún producto recientemente</p>';
+                return;
+            }
+            
+            recentlyViewed.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'recent-product-card';
+                productCard.innerHTML = `
+                    <img src="${product.image || ''}" alt="${product.name}" class="recent-product-image" onerror="this.style.display='none'">
+                    ${!product.image ? `<div class="image-placeholder" style="font-size: 2rem;"><i class="fas fa-box"></i></div>` : ''}
+                    <div class="product-brand" style="font-size: 0.7rem; margin-bottom: 5px;">${product.brand}</div>
+                    <div class="recent-product-name">${product.name}</div>
+                    <div class="recent-product-price">$${product.price} USD</div>
+                    <button class="btn" style="padding: 8px 12px; font-size: 0.8rem; margin-top: 10px;" onclick="openQuickView(${product.id})">Ver Detalles</button>
+                `;
+                recentProductsContainer.appendChild(productCard);
+            });
+        }
+
+        // FILTROS Y ORDENAMIENTO
+        document.getElementById('category-filter').addEventListener('change', filterProducts);
+        document.getElementById('brand-filter').addEventListener('change', filterProducts);
+        document.getElementById('price-filter').addEventListener('change', filterProducts);
+
+        function filterProducts() {
+            const category = document.getElementById('category-filter').value;
+            const brand = document.getElementById('brand-filter').value;
+            const price = document.getElementById('price-filter').value;
+            
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                let show = true;
+                
+                // Filtrar por categoría
+                if (category && card.getAttribute('data-category') !== category) {
+                    show = false;
+                }
+                
+                // Filtrar por marca
+                if (brand && show && card.getAttribute('data-brand') !== brand) {
+                    show = false;
+                }
+                
+                // Filtrar por precio
+                if (price && show) {
+                    const cardPrice = parseInt(card.getAttribute('data-price'));
+                    if (price === '0-50' && cardPrice > 50) show = false;
+                    if (price === '50-100' && (cardPrice <= 50 || cardPrice > 100)) show = false;
+                    if (price === '100-200' && (cardPrice <= 100 || cardPrice > 200)) show = false;
+                    if (price === '200+' && cardPrice <= 200) show = false;
+                }
+                
+                card.style.display = show ? 'block' : 'none';
+            });
+        }
+
+        // VISTA DE PRODUCTOS (GRID/LISTA)
+        document.getElementById('grid-view').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('list-view').classList.remove('active');
+            document.querySelector('.product-grid').style.gridTemplateColumns = 'repeat(auto-fill, minmax(250px, 1fr))';
+            
+            // Restaurar estilos para vista de cuadrícula
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.style.display = 'block';
+                card.querySelector('.product-image-container').style.flex = '';
+                card.querySelector('.product-image-container').style.height = '200px';
+            });
         });
 
-        // Smooth scroll
-        document.querySelector('.btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('list-view').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('grid-view').classList.remove('active');
+            document.querySelector('.product-grid').style.gridTemplateColumns = '1fr';
+            
+            // Ajustar estilos para vista de lista
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.style.display = 'flex';
+                card.querySelector('.product-image-container').style.flex = '0 0 200px';
+                card.querySelector('.product-image-container').style.height = 'auto';
+            });
         });
 
-        // Verificar imágenes al cargar
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('.product-image');
-            images.forEach(img => {
-                // Forzar la verificación de carga de imagen
-                if (img.naturalWidth === 0) {
-                    img.style.display = 'none';
-                    const placeholderId = img.alt.includes('Ventilador') ? 'ventilador-placeholder' : 'olla-placeholder';
-                    document.getElementById(placeholderId).style.display = 'flex';
+        // TEMPORIZADOR DE OFERTAS
+        function updateDealTimer() {
+            // Simular una fecha de finalización (2 días desde ahora)
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 2);
+            endDate.setHours(12, 45, 0, 0);
+            
+            const now = new Date();
+            const diff = endDate - now;
+            
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                
+                document.getElementById('deal-days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('deal-hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('deal-minutes').textContent = minutes.toString().padStart(2, '0');
+                
+                // Segundo temporizador
+                document.getElementById('deal-days-2').textContent = (days + 3).toString().padStart(2, '0');
+                document.getElementById('deal-hours-2').textContent = (hours - 4).toString().padStart(2, '0');
+                document.getElementById('deal-minutes-2').textContent = minutes.toString().padStart(2, '0');
+            }
+        }
+
+        // Cerrar modales al hacer clic fuera
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
                 }
             });
         });
 
-        // Inicializar el carrito
-        updateCart();
+        // Smooth scroll
+        document.querySelectorAll('.btn').forEach(btn => {
+            if (btn.getAttribute('href') === '#products' || btn.getAttribute('href') === '#brands') {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+        });
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCart();
+            updateWishlist();
+            updateComparison();
+            updateRecentlyViewed();
+            updateDealTimer();
+            
+            // Actualizar temporizador cada minuto
+            setInterval(updateDealTimer, 60000);
+        });
     </script>
 </body>
 </html>
