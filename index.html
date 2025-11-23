@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amistad - Electrodomésticos y Tecnología</title>
+    <title>Amistad - Tu Tienda de Confianza</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF6B35;
-            --primary-dark: #E55A2B;
-            --primary-light: #FF8C5A;
-            --secondary: #00A8CC;
-            --accent: #FFD166;
-            --light: #F8F9FA;
-            --dark: #212529;
-            --gray: #6C757D;
-            --gray-light: #E9ECEF;
+            --primary: #E53935;
+            --primary-dark: #C62828;
+            --primary-light: #EF5350;
+            --secondary: #212121;
+            --accent: #FFC107;
+            --light: #FFFFFF;
+            --dark: #212121;
+            --gray: #757575;
+            --gray-light: #F5F5F5;
             --white: #FFFFFF;
-            --success: #06D6A0;
-            --info: #118AB2;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --success: #4CAF50;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
 
         * { 
@@ -55,7 +54,7 @@
         }
 
         .top-bar {
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: var(--primary);
             color: var(--white);
             padding: 8px 0;
             font-size: 0.85rem;
@@ -101,7 +100,7 @@
         }
 
         .logo-icon {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: var(--primary);
             color: white;
             width: 45px;
             height: 45px;
@@ -117,9 +116,7 @@
         .logo-text {
             font-size: 2rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary);
             letter-spacing: -0.5px;
         }
 
@@ -143,7 +140,7 @@
 
         .search-bar input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+            box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.2);
         }
 
         .search-btn {
@@ -218,7 +215,7 @@
         }
 
         .nav-categories {
-            background: var(--light);
+            background: var(--white);
             border-top: 1px solid var(--gray-light);
             border-bottom: 1px solid var(--gray-light);
         }
@@ -265,47 +262,128 @@
             width: 100%;
         }
 
-        /* DROPDOWN MENUS */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
+        /* MENÚ HAMBURGUESA */
+        .hamburger-menu {
             display: none;
-            position: absolute;
-            background: var(--white);
-            min-width: 200px;
-            box-shadow: var(--shadow-lg);
-            border-radius: 8px;
-            z-index: 1001;
-            top: 100%;
-            left: 0;
-            padding: 10px 0;
-            margin-top: 10px;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
             color: var(--dark);
-            padding: 10px 20px;
-            text-decoration: none;
-            display: block;
+            cursor: pointer;
             transition: all 0.3s;
-            font-size: 0.9rem;
         }
 
-        .dropdown-content a:hover {
-            background: var(--light);
+        .hamburger-menu:hover {
             color: var(--primary);
-            padding-left: 25px;
         }
 
-        .account-dropdown {
-            right: 0;
-            left: auto;
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            z-index: 2000;
+            padding: 20px;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .mobile-menu-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mobile-menu-logo .logo-icon {
+            width: 35px;
+            height: 35px;
+            font-size: 1.2rem;
+        }
+
+        .mobile-menu-logo .logo-text {
+            font-size: 1.5rem;
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 10px 0;
+            transition: all 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+
+        .mobile-nav a i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .mobile-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .mobile-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gray-light);
+            border: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mobile-action-btn:hover {
+            background: var(--primary);
+            color: var(--white);
         }
 
         /* HERO SECTION */
@@ -352,13 +430,13 @@
             border: none;
             cursor: pointer;
             font-family: 'Poppins', sans-serif;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3);
         }
 
         .btn:hover { 
             background: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 6px 20px rgba(229, 57, 53, 0.4);
         }
 
         .btn-secondary {
@@ -383,51 +461,10 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
-        /* MARCAS DESTACADAS */
-        .featured-brands {
-            padding: 60px 0;
-            background: var(--light);
-        }
-
-        .brands-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            align-items: center;
-        }
-
-        .brand-logo {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .brand-logo:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .brand-logo img {
-            max-width: 100%;
-            max-height: 60px;
-            filter: grayscale(100%);
-            transition: filter 0.3s;
-        }
-
-        .brand-logo:hover img {
-            filter: grayscale(0%);
-        }
-
         /* FEATURED CATEGORIES */
         .featured-categories {
             padding: 60px 0;
+            background: var(--white);
         }
 
         .section-title {
@@ -444,7 +481,7 @@
             display: block;
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: var(--primary);
             margin: 15px auto 0;
             border-radius: 2px;
         }
@@ -466,11 +503,13 @@
             color: var(--dark);
             position: relative;
             overflow: hidden;
+            border: 1px solid var(--gray-light);
         }
 
         .category-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
 
         .category-card::before {
@@ -480,7 +519,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: var(--primary);
         }
 
         .category-icon {
@@ -492,7 +531,6 @@
 
         .category-card:hover .category-icon {
             transform: scale(1.1);
-            color: var(--secondary);
         }
 
         .category-name {
@@ -503,7 +541,7 @@
         /* PRODUCTOS DESTACADOS */
         .featured-products { 
             padding: 80px 0; 
-            background: var(--light);
+            background: var(--gray-light);
         }
 
         .products-header {
@@ -524,7 +562,6 @@
         }
 
         .view-all:hover {
-            color: var(--secondary);
             gap: 8px;
         }
 
@@ -741,7 +778,7 @@
         }
 
         .auth-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: var(--primary);
             color: white;
             padding: 25px;
             text-align: center;
@@ -811,7 +848,7 @@
 
         .form-control:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+            box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.2);
             outline: none;
         }
 
@@ -958,13 +995,13 @@
         }
 
         .apply-coupon:hover {
-            background: #0093b8;
+            background: #000000;
         }
 
         .cart-summary {
             padding: 25px;
             border-top: 1px solid var(--gray-light);
-            background: var(--light);
+            background: var(--gray-light);
             border-radius: 0 0 16px 16px;
         }
 
@@ -1004,7 +1041,7 @@
         }
 
         .checkout-btn:hover {
-            background: #05c28f;
+            background: #3d8b40;
             transform: translateY(-2px);
         }
 
@@ -1138,6 +1175,18 @@
         }
 
         @media (max-width: 768px) {
+            .hamburger-menu {
+                display: block;
+            }
+            
+            .nav-categories {
+                display: none;
+            }
+            
+            .header-actions .action-item span {
+                display: none;
+            }
+            
             .hero h1 { 
                 font-size: 2.2rem; 
             }
@@ -1196,10 +1245,6 @@
             .product-grid { 
                 grid-template-columns: 1fr; 
             }
-            
-            .brands-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
     </style>
 </head>
@@ -1222,6 +1267,10 @@
         <div class="main-header">
             <div class="container">
                 <div class="header-content">
+                    <button class="hamburger-menu" id="hamburger-menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
                     <a href="#" class="logo">
                         <div class="logo-icon">A</div>
                         <div class="logo-text">AMISTAD</div>
@@ -1233,19 +1282,6 @@
                     </div>
                     
                     <div class="header-actions">
-                        <div class="dropdown">
-                            <div class="action-item">
-                                <i class="fas fa-user"></i>
-                                <span>Cuenta</span>
-                            </div>
-                            <div class="dropdown-content account-dropdown">
-                                <a href="#"><i class="fas fa-user-circle"></i> Mi Perfil</a>
-                                <a href="#"><i class="fas fa-shopping-bag"></i> Mis Pedidos</a>
-                                <a href="#"><i class="fas fa-heart"></i> Mis Favoritos</a>
-                                <a href="#"><i class="fas fa-cog"></i> Configuración</a>
-                                <a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
-                            </div>
-                        </div>
                         <a href="#" class="action-item" onclick="toggleWishlist()">
                             <i class="fas fa-heart"></i>
                             <span>Lista</span>
@@ -1264,111 +1300,105 @@
         <div class="nav-categories">
             <div class="container">
                 <ul class="categories-list">
-                    <li class="dropdown">
-                        <a href="#">Electrodomésticos <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="#">Refrigeradores</a>
-                            <a href="#">Lavadoras</a>
-                            <a href="#">Cocinas</a>
-                            <a href="#">Microondas</a>
-                            <a href="#">Aires Acondicionados</a>
-                        </div>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">Tecnología <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="#">Televisores</a>
-                            <a href="#">Computadoras</a>
-                            <a href="#">Tablets</a>
-                            <a href="#">Smartphones</a>
-                            <a href="#">Audio</a>
-                        </div>
-                    </li>
+                    <li><a href="#">Electrodomésticos</a></li>
+                    <li><a href="#">Tecnología</a></li>
+                    <li><a href="#">Cosméticos</a></li>
+                    <li><a href="#">Zapatos</a></li>
                     <li><a href="#">Hogar</a></li>
-                    <li><a href="#">Cocina</a></li>
-                    <li><a href="#">Limpieza</a></li>
-                    <li><a href="#">Ofertas</a></li>
-                    <li><a href="#">Nuevos Productos</a></li>
+                    <li><a href="#">Productos Varios</a></li>
                 </ul>
             </div>
         </div>
     </header>
+
+    <!-- MENÚ MÓVIL -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-logo">
+                <div class="logo-icon">A</div>
+                <div class="logo-text">AMISTAD</div>
+            </div>
+            <button class="close-menu" id="close-menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="mobile-nav">
+            <li><a href="#"><i class="fas fa-tv"></i> Electrodomésticos</a></li>
+            <li><a href="#"><i class="fas fa-laptop"></i> Tecnología</a></li>
+            <li><a href="#"><i class="fas fa-palette"></i> Cosméticos</a></li>
+            <li><a href="#"><i class="fas fa-shoe-prints"></i> Zapatos</a></li>
+            <li><a href="#"><i class="fas fa-home"></i> Hogar</a></li>
+            <li><a href="#"><i class="fas fa-boxes"></i> Productos Varios</a></li>
+        </ul>
+        
+        <div class="mobile-actions">
+            <button class="mobile-action-btn" onclick="toggleAuthModal()">
+                <i class="fas fa-user"></i> Mi Cuenta
+            </button>
+            <button class="mobile-action-btn" onclick="toggleWishlist()">
+                <i class="fas fa-heart"></i> Mi Lista de Deseos
+            </button>
+            <button class="mobile-action-btn" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i> Mi Carrito
+            </button>
+        </div>
+    </div>
 
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Amistad - Tu Tienda de Confianza</h1>
-                <p>Las mejores marcas de electrodomésticos y tecnología para tu hogar</p>
+                <p>Los mejores productos para tu hogar y estilo de vida</p>
                 <div class="hero-actions">
                     <a href="#products" class="btn">Ver Productos</a>
-                    <a href="#brands" class="btn btn-secondary">Marcas Destacadas</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MARCAS DESTACADAS -->
-    <section class="featured-brands" id="brands">
-        <div class="container">
-            <h2 class="section-title">Marcas Destacadas</h2>
-            <div class="brands-grid">
-                <div class="brand-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung">
-                </div>
-                <div class="brand-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/LG_logo_%282015%29.svg" alt="LG">
-                </div>
-                <div class="brand-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Whirlpool_logo.svg" alt="Whirlpool">
-                </div>
-                <div class="brand-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Philips_logo.svg" alt="Philips">
-                </div>
-                <div class="brand-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Panasonic_logo_%28Blue%29.svg" alt="Panasonic">
-                </div>
-                <div class="brand-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Mabe_logo.svg" alt="Mabe">
+                    <a href="#categories" class="btn btn-secondary">Explorar Categorías</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FEATURED CATEGORIES -->
-    <section class="featured-categories">
+    <section class="featured-categories" id="categories">
         <div class="container">
             <h2 class="section-title">Categorías Destacadas</h2>
             <div class="categories-grid">
                 <a href="#" class="category-card">
                     <div class="category-icon">
-                        <i class="fas fa-fan"></i>
+                        <i class="fas fa-tv"></i>
                     </div>
-                    <div class="category-name">Ventilación</div>
+                    <div class="category-name">Electrodomésticos</div>
                 </a>
                 <a href="#" class="category-card">
                     <div class="category-icon">
-                        <i class="fas fa-utensils"></i>
+                        <i class="fas fa-laptop"></i>
                     </div>
-                    <div class="category-name">Cocina</div>
+                    <div class="category-name">Tecnología</div>
                 </a>
                 <a href="#" class="category-card">
                     <div class="category-icon">
-                        <i class="fas fa-blender"></i>
+                        <i class="fas fa-palette"></i>
                     </div>
-                    <div class="category-name">Preparación</div>
+                    <div class="category-name">Cosméticos</div>
                 </a>
                 <a href="#" class="category-card">
                     <div class="category-icon">
-                        <i class="fas fa-temperature-high"></i>
+                        <i class="fas fa-shoe-prints"></i>
                     </div>
-                    <div class="category-name">Climatización</div>
+                    <div class="category-name">Zapatos</div>
                 </a>
                 <a href="#" class="category-card">
                     <div class="category-icon">
-                        <i class="fas fa-lightbulb"></i>
+                        <i class="fas fa-home"></i>
                     </div>
-                    <div class="category-name">Iluminación</div>
+                    <div class="category-name">Hogar</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <div class="category-name">Productos Varios</div>
                 </a>
             </div>
         </div>
@@ -1383,20 +1413,17 @@
             </div>
             
             <div class="product-grid">
-                <!-- VENTILADOR SAMSUNG -->
+                <!-- VENTILADOR SANUMO -->
                 <div class="product-card">
                     <div class="product-badge new">Nuevo</div>
                     <div class="product-actions">
                         <button class="action-btn" onclick="toggleWishlistItem(0)">
                             <i class="fas fa-heart"></i>
                         </button>
-                        <button class="action-btn" onclick="openQuickView(0)">
-                            <i class="fas fa-eye"></i>
-                        </button>
                     </div>
                     <div class="product-image-container">
                         <img src="https://i.ibb.co/k20PVXK1/8b3e8d70-5394-4d5f-99e6-43f54c1f496e.jpg" 
-                             alt="Ventilador Recargable Samsung" 
+                             alt="Ventilador Recargable Sanumo" 
                              class="product-image"
                              onerror="this.style.display='none'; document.getElementById('ventilador-placeholder').style.display='flex'">
                         <div class="image-placeholder" id="ventilador-placeholder" style="display: none;">
@@ -1404,7 +1431,7 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <div class="product-brand">Samsung</div>
+                        <div class="product-brand">Sanumo</div>
                         <h3 class="product-name">Ventilador Recargable</h3>
                         <div class="rating">
                             <div class="rating-stars">
@@ -1418,26 +1445,23 @@
                         </div>
                         <div class="product-price">$85 USD</div>
                         <p class="product-description">Ventilador portátil con panel solar, batería de larga duración y luz LED integrada.</p>
-                        <button class="add-to-cart" data-id="0" data-name="Ventilador Recargable Samsung" data-price="85">
+                        <button class="add-to-cart" data-id="0" data-name="Ventilador Recargable Sanumo" data-price="85">
                             <i class="fas fa-cart-plus"></i> Agregar al Carrito
                         </button>
                     </div>
                 </div>
 
-                <!-- OLLA DE PRESIÓN WHIRLPOOL -->
+                <!-- OLLA DE PRESIÓN SANUMO -->
                 <div class="product-card">
                     <div class="product-badge">Popular</div>
                     <div class="product-actions">
                         <button class="action-btn" onclick="toggleWishlistItem(1)">
                             <i class="fas fa-heart"></i>
                         </button>
-                        <button class="action-btn" onclick="openQuickView(1)">
-                            <i class="fas fa-eye"></i>
-                        </button>
                     </div>
                     <div class="product-image-container">
                         <img src="https://i.ibb.co/gZGc52QW/2b532c27-5764-4d40-814c-9d878bad95ba.jpg" 
-                             alt="Olla de Presión Whirlpool" 
+                             alt="Olla de Presión Sanumo" 
                              class="product-image"
                              onerror="this.style.display='none'; document.getElementById('olla-placeholder').style.display='flex'">
                         <div class="image-placeholder" id="olla-placeholder" style="display: none;">
@@ -1445,7 +1469,7 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <div class="product-brand">Whirlpool</div>
+                        <div class="product-brand">Sanumo</div>
                         <h3 class="product-name">Olla de Presión</h3>
                         <div class="rating">
                             <div class="rating-stars">
@@ -1459,81 +1483,7 @@
                         </div>
                         <div class="product-price">$50 USD</div>
                         <p class="product-description">Olla de presión con recubrimiento antiadherente y sistema de seguridad avanzado.</p>
-                        <button class="add-to-cart" data-id="1" data-name="Olla de Presión Whirlpool" data-price="50">
-                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
-                        </button>
-                    </div>
-                </div>
-
-                <!-- LICUADORA PHILIPS -->
-                <div class="product-card">
-                    <div class="product-badge sale">Oferta</div>
-                    <div class="product-actions">
-                        <button class="action-btn" onclick="toggleWishlistItem(2)">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <button class="action-btn" onclick="openQuickView(2)">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                    <div class="product-image-container">
-                        <div class="image-placeholder">
-                            <i class="fas fa-blender"></i>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-brand">Philips</div>
-                        <h3 class="product-name">Licuadora Pro</h3>
-                        <div class="rating">
-                            <div class="rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <div class="rating-count">(64)</div>
-                        </div>
-                        <div class="product-price">$65 USD <span class="product-old-price">$80 USD</span></div>
-                        <p class="product-description">Licuadora de alta potencia con tecnología de cuchillas de titanio.</p>
-                        <button class="add-to-cart" data-id="2" data-name="Licuadora Philips Pro" data-price="65">
-                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
-                        </button>
-                    </div>
-                </div>
-
-                <!-- PURIFICADOR DE AIRE LG -->
-                <div class="product-card">
-                    <div class="product-badge">Destacado</div>
-                    <div class="product-actions">
-                        <button class="action-btn" onclick="toggleWishlistItem(3)">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <button class="action-btn" onclick="openQuickView(3)">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                    <div class="product-image-container">
-                        <div class="image-placeholder">
-                            <i class="fas fa-air-freshener"></i>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-brand">LG</div>
-                        <h3 class="product-name">Purificador de Aire</h3>
-                        <div class="rating">
-                            <div class="rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <div class="rating-count">(87)</div>
-                        </div>
-                        <div class="product-price">$120 USD</div>
-                        <p class="product-description">Purificador con filtro HEPA y tecnología de ionización.</p>
-                        <button class="add-to-cart" data-id="3" data-name="Purificador de Aire LG" data-price="120">
+                        <button class="add-to-cart" data-id="1" data-name="Olla de Presión Sanumo" data-price="50">
                             <i class="fas fa-cart-plus"></i> Agregar al Carrito
                         </button>
                     </div>
@@ -1560,7 +1510,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Amistad</h3>
-                    <p>Tu tienda de confianza para electrodomésticos y tecnología de las mejores marcas. Calidad, variedad y precios competitivos.</p>
+                    <p>Tu tienda de confianza para productos de calidad. Encuentra electrodomésticos, tecnología, cosméticos y más al mejor precio.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1573,9 +1523,9 @@
                     <ul class="footer-links">
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Electrodomésticos</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Tecnología</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cosméticos</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Zapatos</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Hogar</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cocina</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Limpieza</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1702,23 +1652,6 @@
         </div>
     </div>
 
-    <!-- VISTA RÁPIDA MODAL -->
-    <div class="modal" id="quickViewModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Vista Rápida</h2>
-                <button class="close-modal" onclick="closeQuickView()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="quick-view-content" id="quick-view-content">
-                    <!-- Contenido de vista rápida se cargará aquí -->
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- LISTA DE DESEOS MODAL -->
     <div class="modal" id="wishlistModal">
         <div class="modal-content">
@@ -1745,7 +1678,7 @@
             {
                 id: 0,
                 name: "Ventilador Recargable",
-                brand: "Samsung",
+                brand: "Sanumo",
                 price: 85,
                 rating: 4.5,
                 reviews: 128,
@@ -1756,36 +1689,13 @@
             {
                 id: 1,
                 name: "Olla de Presión",
-                brand: "Whirlpool",
+                brand: "Sanumo",
                 price: 50,
                 rating: 4.8,
                 reviews: 95,
                 description: "Olla de presión con recubrimiento antiadherente y sistema de seguridad avanzado. Cocina más rápido y conserva los nutrientes.",
                 features: ["Recubrimiento antiadherente", "Sistema de seguridad", "Fácil limpieza", "Capacidad 6L", "Indicador de presión"],
                 image: "https://i.ibb.co/gZGc52QW/2b532c27-5764-4d40-814c-9d878bad95ba.jpg"
-            },
-            {
-                id: 2,
-                name: "Licuadora Pro",
-                brand: "Philips",
-                price: 65,
-                oldPrice: 80,
-                rating: 4.2,
-                reviews: 64,
-                description: "Licuadora de alta potencia con tecnología de cuchillas de titanio. Perfecta para smoothies, sopas y más.",
-                features: ["1000W de potencia", "Cuchillas de titanio", "Jarra de vidrio", "5 velocidades", "Función pulso"],
-                image: ""
-            },
-            {
-                id: 3,
-                name: "Purificador de Aire",
-                brand: "LG",
-                price: 120,
-                rating: 4.7,
-                reviews: 87,
-                description: "Purificador con filtro HEPA y tecnología de ionización. Elimina hasta el 99.97% de partículas en el aire.",
-                features: ["Filtro HEPA", "Tecnología de ionización", "3 modos de funcionamiento", "Indicador de calidad del aire", "Bajo consumo energético"],
-                image: ""
             }
         ];
 
@@ -1807,42 +1717,44 @@
         const loginForm = document.getElementById('login-form');
         const registerForm = document.getElementById('register-form');
         const authTabs = document.querySelectorAll('.auth-tab');
-        let isLoggedIn = false;
+
+        // MENÚ MÓVIL
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
 
         // Agregar productos al carrito
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', function() {
-                if (!this.disabled) {
-                    const id = parseInt(this.getAttribute('data-id'));
-                    const name = this.getAttribute('data-name');
-                    const price = parseInt(this.getAttribute('data-price'));
-                    
-                    // Buscar si el producto ya está en el carrito
-                    const existingItem = cart.find(item => item.id === id);
-                    
-                    if (existingItem) {
-                        existingItem.quantity += 1;
-                    } else {
-                        cart.push({
-                            id: id,
-                            name: name,
-                            price: price,
-                            quantity: 1
-                        });
-                    }
-                    
-                    updateCart();
-                    
-                    // Efecto visual mejorado
-                    const originalText = this.innerHTML;
-                    this.innerHTML = '<i class="fas fa-check"></i> Agregado';
-                    this.style.background = 'var(--success)';
-                    
-                    setTimeout(() => {
-                        this.innerHTML = originalText;
-                        this.style.background = '';
-                    }, 2000);
+                const id = parseInt(this.getAttribute('data-id'));
+                const name = this.getAttribute('data-name');
+                const price = parseInt(this.getAttribute('data-price'));
+                
+                // Buscar si el producto ya está en el carrito
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: id,
+                        name: name,
+                        price: price,
+                        quantity: 1
+                    });
                 }
+                
+                updateCart();
+                
+                // Efecto visual mejorado
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> Agregado';
+                this.style.background = 'var(--success)';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.background = '';
+                }, 2000);
             });
         });
 
@@ -2031,99 +1943,6 @@
             document.getElementById('wishlistModal').style.display = 'none';
         }
 
-        // VISTA RÁPIDA
-        function openQuickView(productId) {
-            const product = products.find(p => p.id === productId);
-            
-            document.getElementById('quick-view-content').innerHTML = `
-                <div class="quick-view-image">
-                    <img src="${product.image || ''}" alt="${product.name}" onerror="this.src=''">
-                    ${!product.image ? `<div class="image-placeholder"><i class="fas fa-box"></i></div>` : ''}
-                </div>
-                <div class="quick-view-info">
-                    <div class="product-brand">${product.brand}</div>
-                    <h2 class="quick-view-title">${product.name}</h2>
-                    <div class="rating">
-                        <div class="rating-stars">
-                            ${generateStars(product.rating)}
-                        </div>
-                        <div class="rating-count">(${product.reviews} reseñas)</div>
-                    </div>
-                    <div class="quick-view-price">$${product.price} USD ${product.oldPrice ? `<span class="product-old-price">$${product.oldPrice} USD</span>` : ''}</div>
-                    <p class="quick-view-description">${product.description}</p>
-                    <div class="quick-view-actions">
-                        <div class="quantity-selector">
-                            <label>Cantidad:</label>
-                            <input type="number" value="1" min="1" id="quick-view-quantity">
-                        </div>
-                        <button class="btn add-to-cart" onclick="addFromQuickView(${productId})">
-                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
-                        </button>
-                        <button class="wishlist-btn ${wishlist.find(item => item.id === productId) ? 'active' : ''}" onclick="toggleWishlistItem(${productId}); this.classList.toggle('active')">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                    </div>
-                    <div class="product-features">
-                        <h3>Características:</h3>
-                        <ul>
-                            ${product.features.map(feature => `<li>${feature}</li>`).join('')}
-                        </ul>
-                    </div>
-                </div>
-            `;
-            
-            document.getElementById('quickViewModal').style.display = 'flex';
-        }
-
-        function generateStars(rating) {
-            let stars = '';
-            const fullStars = Math.floor(rating);
-            const hasHalfStar = rating % 1 !== 0;
-            
-            for (let i = 0; i < fullStars; i++) {
-                stars += '<i class="fas fa-star"></i>';
-            }
-            
-            if (hasHalfStar) {
-                stars += '<i class="fas fa-star-half-alt"></i>';
-            }
-            
-            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-            for (let i = 0; i < emptyStars; i++) {
-                stars += '<i class="far fa-star"></i>';
-            }
-            
-            return stars;
-        }
-
-        function addFromQuickView(productId) {
-            const product = products.find(p => p.id === productId);
-            const quantity = parseInt(document.getElementById('quick-view-quantity').value) || 1;
-            
-            const existingItem = cart.find(item => item.id === productId);
-            
-            if (existingItem) {
-                existingItem.quantity += quantity;
-            } else {
-                cart.push({
-                    id: product.id,
-                    name: `${product.brand} ${product.name}`,
-                    price: product.price,
-                    quantity: quantity
-                });
-            }
-            
-            updateCart();
-            closeQuickView();
-            
-            // Mostrar mensaje de confirmación
-            alert(`${quantity} ${product.brand} ${product.name} agregado(s) al carrito`);
-        }
-
-        function closeQuickView() {
-            document.getElementById('quickViewModal').style.display = 'none';
-        }
-
         // SISTEMA DE AUTENTICACIÓN
         document.getElementById('login-link').addEventListener('click', function(e) {
             e.preventDefault();
@@ -2160,20 +1979,10 @@
             document.getElementById(`${tabName}-form`).classList.add('active');
         }
 
-        // Cerrar modales al hacer clic fuera
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.style.display = 'none';
-                }
-            });
-        });
-
         // Manejo de formularios de autenticación
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             // Simular inicio de sesión exitoso
-            isLoggedIn = true;
             authModal.style.display = 'none';
             alert('¡Inicio de sesión exitoso!');
             // Aquí normalmente haríamos una petición al servidor
@@ -2182,11 +1991,26 @@
         registerForm.addEventListener('submit', function(e) {
             e.preventDefault();
             // Simular registro exitoso
-            isLoggedIn = true;
             authModal.style.display = 'none';
             alert('¡Registro exitoso! Bienvenido a Amistad.');
             // Aquí normalmente haríamos una petición al servidor
         });
+
+        // MENÚ MÓVIL
+        hamburgerMenu.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Función para abrir modal de autenticación desde móvil
+        function toggleAuthModal() {
+            mobileMenu.classList.remove('active');
+            authModal.style.display = 'flex';
+            switchAuthTab('login');
+        }
 
         // Enviar pedido por WhatsApp
         function sendOrderToWhatsApp() {
@@ -2215,9 +2039,18 @@
             window.open(url, '_blank');
         }
 
+        // Cerrar modales al hacer clic fuera
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+        });
+
         // Smooth scroll
         document.querySelectorAll('.btn').forEach(btn => {
-            if (btn.getAttribute('href') === '#products' || btn.getAttribute('href') === '#brands') {
+            if (btn.getAttribute('href') === '#products' || btn.getAttribute('href') === '#categories') {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
